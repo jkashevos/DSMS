@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - DSMS.Web</title>
+
+    <environment include="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/css/site.css" />
+        <link href="~/lib/jqwidgets/styles/jqx.base.css" rel="stylesheet" />
+        <link href="~/lib/jqwidgets/styles/jqx.energyblue.css" rel="stylesheet" />
+        <script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment exclude="Development">
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+</head>
+<body>
+    <div align="center">
+        <div>
+            <input type="submit" value="Attendance" id="signInOut">
+            <input type="submit" value="Judicial Committee" id="judicialCommittee">
+            <input type="submit" value="School Meeting" id="schoolMeeting">
+            <input type="submit" value="Management Manual" id="managementManual">
+            <input type="submit" value="Library" id="library">
+            <input type="submit" value="Chores" id="chores">
+        </div>
+        <hr/>
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2017 - DSMS.Web</p>
+        </footer>
+    </div>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

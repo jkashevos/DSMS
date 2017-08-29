@@ -1,0 +1,31 @@
+﻿@model Tuple<List<SystemMessage>, List<VisitorViewModel>>
+    
+@{
+    ViewData["Title"] = "Sign In/Out";
+    ViewData["Theme"] = "energyblue";
+}
+
+<h1>@ViewData["Title"]</h1>   
+<div>
+    @foreach (var item in Model.Item1) {
+        <h2>@item.Title</h2>
+        <h3>@item.Message</h3>
+    }
+</div>
+<hr />
+<div>
+    <h1>Visitors on Campus</h1>
+    <jqx-grid theme="@ViewData["Theme"]" sortable="true" filterable="true" auto-height="true" width="900" source="Model.Item2"> 
+        <jqx-grid-columns>
+            <jqx-grid-column datafield="Name" width="200" text="First Name"></jqx-grid-column>
+            <jqx-grid-column datafield="ResponsiblePartyFullName" width="200" text="Responsible Party"></jqx-grid-column> 
+            <jqx-grid-column datafield="ReasonForVisit" width="200" text="Reason for Visit"></jqx-grid-column>
+            <jqx-grid-column datafield="TimeIn" width="200" text="Time In"></jqx-grid-column> 
+            <jqx-grid-column datafield="ExpectedDuration" width="100" text="Duration"></jqx-grid-column>        
+        </jqx-grid-columns>       
+    </jqx-grid>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_jQXScriptsPartial")
+}
